@@ -1,25 +1,21 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton
+from PyQt6.QtWidgets import QApplication, QMainWindow
 from PyQt6.QtGui import QPainter, QPen, QBrush, QColor
 from PyQt6.QtCore import Qt, QRect
 from PyQt6 import uic
 import random
 
 
-class Window(QWidget):
+class Window(QMainWindow):
     def __init__(self):
         super().__init__()
         self.circles = []
+        uic.loadUi('UI.ui', self)
         self.initUI()
 
     def initUI(self):
-        self.setGeometry(100, 100, 800, 600)
-        self.layout = QVBoxLayout()
-        self.setLayout(self.layout)
-        self.button = QPushButton("Добавить круг")
-        self.button.clicked.connect(self.addCircle)
-        self.layout.addWidget(self.button)
-        self.show()
+            self.pushButton.clicked.connect(self.addCircle)
+            self.show()
 
     def addCircle(self):
         x = random.randint(0, 700)
